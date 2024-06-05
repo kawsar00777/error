@@ -2,16 +2,16 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class SubAdmin extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-    protected $guard = 'web';
+    protected $guard = 'subadmin';
 
     /**
      * The attributes that are mass assignable.

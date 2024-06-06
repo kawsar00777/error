@@ -36,7 +36,7 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return Redirect::route('subadmin.edit')->with('status', 'subadmin-updated');
+        return Redirect::route('sub_admins.profile.edit')->with('status', 'sub_admins-updated');
     }
 
     /**

@@ -12,7 +12,7 @@ use App\Http\Controllers\SubAdmin\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::middleware('guest:subadmin')->prefix('subadmin')->name('subadmin.')->group(function () {
+Route::middleware('guest:subadmin')->prefix('sub_admins')->name('sub_admins.')->group(function () {
 
 
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
@@ -33,7 +33,7 @@ Route::middleware('guest:subadmin')->prefix('subadmin')->name('subadmin.')->grou
         ->name('password.store');
 });
 
-Route::middleware('auth:subadmin')->prefix('subadmin')->name('subadmin.')->group(function () {
+Route::middleware('auth:subadmin')->prefix('sub_admins')->name('sub_admins.')->group(function () {
     Route::get('verify-email', EmailVerificationPromptController::class)
         ->name('verification.notice');
 
@@ -64,7 +64,7 @@ Route::middleware('auth:subadmin')->prefix('subadmin')->name('subadmin.')->group
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
 
-
+    // Route::get('/sub_admins/{id}/edit', [ProfileController::class, 'edit'])->name('sub_admins.edit');
 
 
 

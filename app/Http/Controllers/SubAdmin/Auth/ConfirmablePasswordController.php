@@ -33,8 +33,8 @@ class ConfirmablePasswordController extends Controller
             ]);
         }
 
-        $request->session()->put('subadmin.auth.password_confirmed_at', time());
+        $request->session()->put('sub_admins.auth.password_confirmed_at', time());
 
-        return redirect()->intended(route('subadmin.dashboard', absolute: false));
+        return redirect()->intended(route('sub_admins.dashboard', absolute: false));
     }
 }

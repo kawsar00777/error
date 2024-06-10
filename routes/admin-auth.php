@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\Auth\PasswordController;
 use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Admin\Auth\VerifyEmailController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -55,9 +56,9 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
 
     //apatoto//
 
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    })->middleware([ 'verified'])->name('dashboard');
+    // Route::get('/dashboard', function () { return view('admin.dashboard');})->middleware([ 'verified'])->name('dashboard');
+
+    Route::get('/dashboard', [AdminController::class, 'index'])->middleware([ 'verified'])->name('dashboard');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

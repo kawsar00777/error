@@ -9,6 +9,7 @@ use App\Http\Controllers\SubAdmin\Auth\PasswordController;
 use App\Http\Controllers\SubAdmin\Auth\PasswordResetLinkController;
 use App\Http\Controllers\SubAdmin\Auth\VerifyEmailController;
 use App\Http\Controllers\SubAdmin\ProfileController;
+use App\Http\Controllers\SubAdminController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -55,9 +56,11 @@ Route::middleware('auth:subadmin')->prefix('sub_admins')->name('sub_admins.')->g
 
     //apatoto//
 
-    Route::get('/dashboard', function () {
-        return view('subadmin.dashboard');
-    })->middleware([ 'verified'])->name('dashboard');
+    // Route::get('/dashboard', function () {
+    //     return view('subadmin.dashboard');
+    // })->middleware([ 'verified'])->name('dashboard');
+
+    Route::get('/dashboard', [SubAdminController::class, 'index'])->middleware([ 'verified'])->name('dashboard');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

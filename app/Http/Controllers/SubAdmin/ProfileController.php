@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\subadmin;
+namespace App\Http\Controllers\SubAdmin;
 
 
 use App\Http\Requests\ProfileUpdateRequest;

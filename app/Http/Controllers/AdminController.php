@@ -17,7 +17,8 @@ class AdminController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('admin.manage_users', compact('users'));
+        $slot = 'this is a slot issue';
+        return view('admin.manage_users', compact('users', 'slot'));
     }
 
     // Update the role of a user
